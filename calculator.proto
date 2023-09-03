@@ -9,6 +9,16 @@ message SumResponse {
   int32 result = 1;
 }
 
-service SumService {
+message SubtractRequest {
+  int32 num1 = 1;
+  int32 num2 = 2;
+}
+
+message SubtractResponse {
+  int32 result = 1;
+}
+
+service CalculatorService {
   rpc Sum(SumRequest) returns (SumResponse);
+  rpc Subtract(SubtractRequest) returns (SubtractResponse);
 }
