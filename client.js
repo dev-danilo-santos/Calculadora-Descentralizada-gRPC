@@ -8,7 +8,7 @@ const num2 = 5;
 
 client.Sum({ num1, num2 }, (err, response) => {
   if (!err) {
-    console.log(`Resultado: ${response.result}`);
+    console.log(`${num1} + ${num2}: ${response.result}`);
   } else {
     console.error(err);
   }
@@ -16,7 +16,7 @@ client.Sum({ num1, num2 }, (err, response) => {
 
 client.Subtract({num1,num2}, (err, response) => {
     if(!err) {
-        console.log(`Resultado: ${response.result}`);
+        console.log(`${num1} - ${num2}: ${response.result}`);
 
     }
     else {
@@ -24,4 +24,23 @@ client.Subtract({num1,num2}, (err, response) => {
     }
 });
 
+client.Divide({num1,num2}, (err, response) => {
+    if(!err) {
+        console.log(`${num1} / ${num2}: ${response.result}`);
+
+    }
+    else {
+        console.error(err)
+    }
+});
+
+client.Multiply({num1,num2}, (err, response) => {
+    if(!err) {
+        console.log(`${num1} * ${num2}: ${response.result}`);
+
+    }
+    else {
+        console.error(err)
+    }
+});
 

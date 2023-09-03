@@ -33,6 +33,36 @@ controllerServer.addService(calculatorProto.CalculatorService.service, {
       }
     });
   },
+  Divide: (call, callback) => {
+    const { num1, num2 } = call.request;
+    
+    // Envie a solicitação para o servidor de divisão
+    const divideServiceClient = new calculatorProto.CalculatorService('127.0.0.1:50054', grpc.credentials.createInsecure());
+
+    divideServiceClient.Divide({ num1, num2 }, (err, response) => {
+      if (!err) {
+        callback(null, response);
+      } else {
+        console.error(err);
+        callback(err);
+      }
+    });
+  },
+  Multiply: (call, callback) => {
+    const { num1, num2 } = call.request;
+    
+    // Envie a solicitação para o servidor de multiplicação
+    const multiplyServiceClient = new calculatorProto.CalculatorService('127.0.0.1:50055', grpc.credentials.createInsecure());
+
+    multiplyServiceClient.Multiply({ num1, num2 }, (err, response) => {
+      if (!err) {
+        callback(null, response);
+      } else {
+        console.error(err);
+        callback(err);
+      }
+    });
+  },
 });
 
 controllerServer.bind('127.0.0.1:50052', grpc.ServerCredentials.createInsecure());

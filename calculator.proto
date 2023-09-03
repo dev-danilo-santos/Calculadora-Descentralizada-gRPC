@@ -18,7 +18,27 @@ message SubtractResponse {
   int32 result = 1;
 }
 
+message DivideRequest {
+  int32 num1 = 1;
+  int32 num2 = 2;
+}
+
+message DivideResponse {
+  float result = 1;
+}
+
+message MultiplyRequest {
+  int32 num1 = 1;
+  int32 num2 = 2;
+}
+
+message MultiplyResponse {
+  int32 result = 1;
+}
+
 service CalculatorService {
   rpc Sum(SumRequest) returns (SumResponse);
   rpc Subtract(SubtractRequest) returns (SubtractResponse);
+  rpc Divide(DivideRequest) returns (DivideResponse);
+  rpc Multiply(MultiplyRequest) returns (MultiplyResponse);
 }
